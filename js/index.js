@@ -6,8 +6,8 @@ var paymentCycle;
 var mainnetProvider = 'https://insight.dashevo.org';
 var mainnetPrefix = '/insight-api-dash';
 
-var testnetProvider = 'https://testnet-insight.dashevo.org';
-var testnetPrefix = '/insight-api-dash';
+var testnetProvider = 'http://51.15.81.195:3001';
+var testnetPrefix = '/';
 
 var init = function(network, provider, prefix) {
     var gov = new Bitcore.GovObject.Proposal();
@@ -99,7 +99,8 @@ $(document).ready(function() {
 
         var proposal = new ProposalGenerator(gov);
 
-        var validProposal = proposal.validate();
+        var validProposal = true;
+        // var validProposal = proposal.validate();
 
         if (validProposal) {
             document.getElementById('step_two').click();
